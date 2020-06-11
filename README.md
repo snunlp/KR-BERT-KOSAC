@@ -2,7 +2,7 @@
 # KR-KOSAC-BERT
 
 
-A pretrained Korean-specific BERT model including sentiment features to perform better at sentiment-related tasks
+A pretrained Korean-specific BERT model including sentiment features to perform better at sentiment-related tasks, developed by Computational Linguistics Lab at Seoul National University
 
 Based on our character-level represented our [KR-BERT](https://github.com/snunlp/KR-BERT) models, using WordPiece and BidirectionalWordPiece tokenizers
 
