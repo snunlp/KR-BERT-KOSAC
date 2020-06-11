@@ -16,6 +16,13 @@ The sentiment features included in KOSAC contain polarity and intensity values t
 
 The four classes of intensity values include: None (no intensity value), High, Medium and Low. These values show how strong the sentiment is in the token.
 
+
+![efg](../img/fig2_new.png)
+
+
+The polarity and intensity embeddings can be simply added to the token, position and segment embeddings of BERT and be trained just as BERT models.
+
+
 <br>
 
 ## Masked LM Accuracy
