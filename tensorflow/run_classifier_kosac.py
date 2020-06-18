@@ -134,10 +134,19 @@ flags.DEFINE_integer(
     "Only used if `use_tpu` is True. Total number of TPU cores to use.")
 
 
+tkn2pol = pickle.load(open('kosac_polarity.pkl', 'rb'))
+tkn2int = pickle.load(open('kosac_intensity.pkl', 'rb'))
+
+
 if FLAGS.tokenizer == 'bert':
   import tokenization
+  pol2idx = ['POS', 'NEG', 'COMP', 'None', 'NEUT']
+  int2idx = ['High', 'Medium', 'None', 'Low']
+
 elif FLAGS.tokenizer == 'ranked':
   import tokenization_ranked as tokenization
+  pol2idx = ['None', 'POS', 'NEUT', 'COMP', 'NEG']
+  int2idx = ['Medium', 'Low', 'None', 'High']
 
 
 class InputExample(object):
@@ -535,14 +544,6 @@ class CredProcessor(DataProcessor):
     return examples
 
 
-
-tkn2pol = pickle.load(open('kosac_polarity.pkl', 'rb'))
-tkn2int = pickle.load(open('kosac_intensity.pkl', 'rb'))
-
-pol2idx = ['None', 'POS', 'NEUT', 'NEG', 'COMP']
-int2idx = ['None', 'High', 'Medium', 'Low']
-
-
 def convert_sentiment_to_ids(mode, labels):
   ids = []
   if mode == 'polarity':
@@ -563,8 +564,8 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
         input_ids=[0] * max_seq_length,
         input_mask=[0] * max_seq_length,
         segment_ids=[0] * max_seq_length,
-        polarity_ids=[0] * max_seq_length,
-        intensity_ids=[0] * max_seq_length,
+        polarity_ids=[pol2idx.index('None')] * max_seq_length,
+        intensity_ids=[int2idx.index('None')] * max_seq_length,
         label_id=0,
         is_real_example=False)
 
@@ -668,8 +669,8 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
     input_ids.append(0)
     input_mask.append(0)
     segment_ids.append(0)
-    polarity_ids.append(0)
-    intensity_ids.append(0)
+    polarity_ids.append(pol2idx.index('None'))
+    intensity_ids.append(int2idx.index('None'))
 
   assert len(input_ids) == max_seq_length
   assert len(input_mask) == max_seq_length
