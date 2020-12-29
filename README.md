@@ -1,5 +1,5 @@
 
-# KR-KOSAC-BERT
+# KR-BERT-KOSAC
 
 
 A pretrained Korean-specific BERT model including sentiment features to perform better at sentiment-related tasks, developed by Computational Linguistics Lab at Seoul National University.
@@ -31,8 +31,8 @@ The polarity and intensity embeddings can be simply added to the token, position
 | KoBERT                                | 0.750     |
 | KR-BERT WordPiece                     | 0.779     |
 | KR-BERT BidirectionalWordPiece        | 0.769     |
-| KR-KOSAC-BERT WordPiece               | 0.851     |
-| KR-KOSAC-BERT BidirectionalWordPiece  | **0.855**     |
+| KR-BERT-KOSAC WordPiece               | 0.851     |
+| KR-BERT-KOSAC BidirectionalWordPiece  | **0.855**     |
 
 <br>
 
@@ -88,8 +88,8 @@ python3 run_classifier_kosac.py \
 | KorBERT                               | 0.8556    | 0.8555    |
 | KR-BERT WordPiece                     | 0.8986    | 0.8974    |
 | KR-BERT BidirectionalWordPiece        | 0.9010    | 0.8954    |
-| KR-KOSAC-BERT WordPiece               | **0.9030**    | **0.8982**    |
-| KR-KOSAC-BERT BidirectionalWordPiece  | 0.902     | 0.896     |
+| KR-BERT-KOSAC WordPiece               | **0.9030**    | **0.8982**    |
+| KR-BERT-KOSAC BidirectionalWordPiece  | 0.902     | 0.896     |
 
 <br>
 
